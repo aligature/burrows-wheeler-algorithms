@@ -8,12 +8,13 @@
 \
 Spell it right: Burrows-Wheeler transform\
 \
-In place or return copy or both?  Both.  Also return interators.\
+In place or return copy or both?  Both.  Also return iterators.\
 \
-Boost strings or algorithms?  More generic than just strings\
+Boost algorithm/strings\
 \
-Work with strange alphabets, UTF-8\
+Work with strange alphabets, UTF-8.  Should not be a problem.\
 \
+Does it need locales?  No.  Sort only has to be consistent, but perhaps there is a need for lexicographic ordering.\
 \
 template<typename BidirectionalRangeT>\
 void burrows_wheeler(BidirectionalRangeT &);\
@@ -25,7 +26,18 @@ template<typename OutputIteratorT, ForwardRangeT>\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 \cf0 OutputIteratorT burrows_wheeler_copy(OutputIteratorT, const ForwardRangeT &);\
 \
+template<typename BidirectionalRangeT>\
+void inverse_burrows_wheeler(BidirectionalRangeT &);\
+\
+template<typename SequenceT>\
+SequenceT inverse_burrows_wheeler_copy(const SequenceT &);\
+\
+template<typename OutputIteratorT, ForwardRangeT>\
+OutputIteratorT inverse_burrows_wheeler_copy(OutputIteratorT, const ForwardRangeT &);\
+\
 May have to tighten concepts based on implementation.\
+\
+Add move semantics to the mutating algorithms.\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
 \cf0 \
 \
