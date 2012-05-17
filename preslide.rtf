@@ -1,0 +1,46 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww14180\viewh12680\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qc\pardirnatural
+
+\f0\fs46 \cf0 Burrows-Wheeler Transform\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\fs24 \cf0 \
+
+\fs30 The Interface:\
+\
+template<typename BidirectionalRangeT>\
+void burrows_wheeler(BidirectionalRangeT &);\
+\
+template<typename SequenceT>\
+SequenceT burrows_wheeler_copy(const SequenceT &);\
+\
+template<typename OutputIteratorT, ForwardRangeT>\
+OutputIteratorT burrows_wheeler_copy(OutputIteratorT, const ForwardRangeT &);\
+\
+template<typename BidirectionalRangeT>\
+void inverse_burrows_wheeler(BidirectionalRangeT &);\
+\
+template<typename SequenceT>\
+SequenceT inverse_burrows_wheeler_copy(const SequenceT &);\
+\
+template<typename OutputIteratorT, ForwardRangeT>\
+OutputIteratorT inverse_burrows_wheeler_copy(OutputIteratorT, const ForwardRangeT &);\
+
+\fs24 \
+
+\fs30 Work with strange alphabets, UTF-8.  Should not be a problem.\
+\
+Does it need locales?  No.  Sort only has to be consistent, but perhaps there is a need for lexicographic ordering.\
+\
+May have to tighten concepts based on implementation.\
+\
+Add move semantics to the mutating algorithms.\
+\
+Options:\
+\
+Specify a locale\
+Specify a sort\
+Specify a comparator}
