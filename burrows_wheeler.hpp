@@ -11,7 +11,9 @@
 //template<typename BidirectionalRangeT> void burrows_wheeler(BidirectionalRangeT &);
 //template<typename OutputIteratorT, ForwardRangeT> OutputIteratorT burrows_wheeler_copy(OutputIteratorT, const ForwardRangeT &);
 
-template<typename VecType> void setSecondFromPrevious(VecType& vec, size_t index, typename VecType::value_type::first_type c)
+template<typename VecType> void setSecondFromPrevious(VecType& vec,
+      size_t index,
+      typename VecType::value_type::first_type c)
 {
    if(index == 0)
       vec.back().second = c;
@@ -37,7 +39,8 @@ template<typename SequenceT> SequenceT burrows_wheeler_copy(const SequenceT& inp
       setSecondFromPrevious(working, iter.index(), *iter);
    }
 
-   boost::range::sort(working, [](pair_type const& lhs, pair_type const& rhs) { return lhs.first < rhs.first; });
+   boost::range::sort(working, [](pair_type const& lhs, pair_type const& rhs)
+         { return lhs.first < rhs.first; });
 
    auto secondRange = working | boost::adaptors::map_values;
    return SequenceT(boost::begin(secondRange), boost::end(secondRange));
